@@ -16,7 +16,7 @@ RUN cd trojan-go &&\
     wget https://github.com/v2fly/geoip/raw/release/geoip.dat -O build/geoip.dat &&\
     wget https://github.com/v2fly/geoip/raw/release/geoip-only-cn-private.dat -O build/geoip-only-cn-private.dat
 
-FROM alpine
+FROM alpine:3.20.3
 WORKDIR /
 RUN apk add --no-cache tzdata ca-certificates
 COPY --from=builder /trojan-go/build /usr/local/bin/
